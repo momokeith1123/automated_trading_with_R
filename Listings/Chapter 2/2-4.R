@@ -9,11 +9,11 @@ setwd(datadir)
 toload <- setdiff(S[!paste0(S, ".csv") %in% list.files()], invalid)
 
 # Fetch symbols with yahoo function, save as .csv or missing
-source(paste0(functiondir, "yahoo.R"))
+source(paste0(functiondir, "eikon.R"))
 if(length(toload) != 0){
   for(i in 1:length(toload)){
     
-  df <- yahoo(toload[i])
+  df <- eikon_get(toload[i])
   
   if(!is.null(df)) {
     write.csv(df[nrow(df):1], file = paste0(toload[i], ".csv"),
