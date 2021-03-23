@@ -40,7 +40,7 @@ functiondir <- "~/AutoTrading/functions/"
 ####Listing 2.2 modified for quandl instead of Yahoo!
 #insert your Quandl APO here
 require(Quandl)
-quandl_api = "MYAPIKEY"
+quandl_api = "kJAreoEAE3dSJMjaxB_i"
 
 #add my key to Quandl API
 Quandl.api_key(quandl_api)

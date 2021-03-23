@@ -2,36 +2,36 @@ library(zoo)
 
 # Compute the date template as a column of a data.frame for merging
 # Considers date are strings in YYYY-MM-DD format
-datetemp <- sort(unique(unlist(sapply(DATA, function(v) v[["Date"]]))))
+datetemp <- sort(unique(unlist(sapply(DATA, function(v) v[["TIMESTAMP"]]))))
 datetemp <- data.frame(datetemp, stringsAsFactors = FALSE)
-names(datetemp) <- "Date"
+names(datetemp) <- "TIMESTAMP"
 
 # Double-check that our data is unique and in ascending-date order
-DATA <- lapply(DATA, function(v) unique(v[order(v$Date),]))
+DATA <- lapply(DATA, function(v) unique(v[order(v$TIMESTAMP),]))
 
 # Create 6 new objects that will hold our re-orgainzed data
-DATA[["Open"]] <- DATA[["High"]] <- DATA[["Low"]] <-
-  DATA[["Close"]] <- DATA[["Adj Close"]] <- DATA[["Volume"]] <- datetemp
+DATA[["OPEN"]] <- DATA[["HIGH"]] <- DATA[["LOW"]] <-
+  DATA[["CLOSE"]] <-  DATA[["VOLUME"]] <- datetemp
 
 # This loop will sequentially append the columns of each symbol 
 # to the appropriate Open, High, Low, etc. object
 for(s in S){ 
-  for(i in rev(c("Open", "High", "Low", "Close", "Adj Close", "Volume"))){
-    temp <- data.frame(cbind(DATA[[s]][["Date"]], DATA[[s]][[i]]),
-                       stringsAsFactors = FALSE)
-    names(temp) <- c("Date", s)
-    temp[,2] <- as.numeric(temp[,2])
+  for(i in rev(c("OPEN", "HIGH", "LOW", "CLOSE",  "VOLUME"))){
+    # temp <- data.frame(cbind(DATA[[s]][["TIMESTAMP"]], DATA[[s]][[i]]),
+    #                    stringsAsFactors = FALSE)
+    # names(temp) <- c("Date", s)
+    # temp[,2] <- as.numeric(temp[,2])
+    # 
+    # if(!any(!DATA[[i]][["Date"]][(nrow(DATA[[i]]) - nrow(temp)+1):nrow(DATA[[i]])]
+    #         == temp[,1])){
+    #   temp <- rbind(t(matrix(nrow = 2, ncol = nrow(DATA[[i]]) - nrow(temp),
+    #                          dimnames = list(names(temp)))), temp)
+    #   DATA[[i]] <- cbind(DATA[[i]], temp[,2])
+    # } else {
+    #   DATA[[i]] <- merge(DATA[[i]], temp, all.x = TRUE, by = "Date")
+    # }
     
-    if(!any(!DATA[[i]][["Date"]][(nrow(DATA[[i]]) - nrow(temp)+1):nrow(DATA[[i]])]
-            == temp[,1])){
-      temp <- rbind(t(matrix(nrow = 2, ncol = nrow(DATA[[i]]) - nrow(temp),
-                             dimnames = list(names(temp)))), temp)
-      DATA[[i]] <- cbind(DATA[[i]], temp[,2])
-    } else {
-      DATA[[i]] <- merge(DATA[[i]], temp, all.x = TRUE, by = "Date")
-    }
-    
-    names(DATA[[i]]) <- c(names(DATA[[i]])[-(ncol(DATA[[i]]))], s)
+    # names(DATA[[i]]) <- c(names(DATA[[i]])[-(ncol(DATA[[i]]))], s)
   }
   DATA[[s]] <- NULL
   
