@@ -50,8 +50,3 @@ function(sym, sdate = "2000-01-01T16:45:00", edate = current ) {
 }
 
 
-
-
-# S <- list("MSFT.O", "GOOG.O","IBM.N") %>% set_names(c("MSFT.O", "GOOG.O","IBM.N"))
-# 
-# dat <- map(S,~ eikon_get(.x))
