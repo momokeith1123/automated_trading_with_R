@@ -12,7 +12,7 @@ eikon_api = "9a548e9c62cb499b8ebd0d9a777b4d857ef449a0"
 eikonapir::set_app_id(eikon_api)
 result <- get_symbology(list("MSFT.O", "GOOG.O", "IBM.N"),"RIC",list("ISIN"),raw_ouput = FALSE,debug=FALSE)
 # df = get_timeseries("MSFT.O",list("*"),start_date = "2016-01-01T15:04:05",end_date = "2021-03-22T15:04:05",interval = "daily", raw_output = TRUE)
-dat = get_timeseries("MSFT.O",list("*"),start_date = "2016-01-04T00:00:00Z",end_date ="2021-03-22T00:00:00Z","daily")
+# dat = get_timeseries("MSFT.O",list("*"),start_date = "2016-01-04T00:00:00Z",end_date ="2021-03-22T00:00:00Z","daily")
 
 
 y <- substr(as.character(Sys.time()), start = 1, stop = 4)
@@ -22,7 +22,7 @@ d <- substr(as.character(Sys.time()), start = 9, stop = 10)
 current <- paste0(y, "-", m, "-", d, "T00:00:00Z")
 
 eikon_get <-
-function(sym, sdate = "2000-01-01T16:45:00", edate = current ) {
+function(sym, sdate = "2000-01-01T00:00:00", edate = current ) {
     require(tidyverse)
     require(devtools)
     require(eikonapir)
