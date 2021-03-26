@@ -1,6 +1,7 @@
 DIR <- list()
 DIR[["root"]] <- "D:/repositories/automated_trading_with_R/Platform/"
-DIR[["data"]] <- "D:/repositories/automated_trading_with_R/Platform/stockdata/"
+# DIR[["data"]] <- "D:/repositories/automated_trading_with_R/Platform/stockdata/"
+DIR[["data"]] <- "D:/repositories/automated_trading_with_R/Platform/SnP500/"
 DIR[["function"]] <- "D:/repositories/automated_trading_with_R/Platform/functions/"
 DIR[["load"]] <- "D:/repositories/automated_trading_with_R/Platform/load/"
 DIR[["compute"]] <- "D:/repositories/automated_trading_with_R/Platform/compute/"

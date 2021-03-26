@@ -34,14 +34,14 @@ function(sym, sdate = "2000-01-01T00:00:00", edate = current ) {
                             end_date =  edate,
                             debug = FALSE)) 
   
-    df <- tibble (  'DATE'= ymd(substr(as.character(dt$TIMESTAMP), start = 1, stop = 10)),
-                    'OPEN' = as.double(dt$OPEN),
-                    'HIGH' = as.double(dt$HIGH),
-                    'LOW'  = as.double(dt$LOW),
-                    'CLOSE' = as.double(dt$CLOSE),
-                    'COUNT' = as.double(dt$COUNT),
-                    'VOLUME' = as.double(dt$VOLUME),
-                    'RIC'  = sym
+    df <- tibble (  'Date'= ymd(substr(as.character(dt$TIMESTAMP), start = 1, stop = 10)),
+                    'Open' = as.double(dt$OPEN),
+                    'High' = as.double(dt$HIGH),
+                    'Low'  = as.double(dt$LOW),
+                    'Close' = as.double(dt$CLOSE),
+                    'Count' = as.double(dt$COUNT),
+                    'Volume' = as.double(dt$VOLUME),
+                    'Ric'  = sym
                    )
     # names(df )[2:6] <- paste0( paste0(names(df )[2:6], '.', sym))
     

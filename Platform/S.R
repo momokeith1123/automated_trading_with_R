@@ -1,10 +1,10 @@
 S <-
-c("RIC", "AAPL.O", "MSFT.O", "AMZN.O", "GOOG.O", "GOOGL.O", "FB.O", 
-"TSLA.O", "BRKb", "JPM", "V", "JNJ", "WMT", "MA", "UNH", "DIS", 
-"PG", "NVDA.O", "BAC", "HD", "PYPL.O", "INTC.O", "CMCSA.O", "NFLX.O", 
-"VZ", "XOM", "KO", "ADBE.O", "NKE", "T", "ABT", "CSCO.O", "CRM", 
-"PFE", "CVX", "ORCL.K", "MRK", "PEP.O", "AVGO.O", "ABBV.K", "TMO", 
-"ACN", "LLY", "MCD", "TXN.O", "WFC", "DHR", "MDT", "TMUS.O", 
+c(".SPX", "AAPL.O", "MSFT.O", "AMZN.O", "GOOG.O", "GOOGL.O", 
+"FB.O", "TSLA.O", "BRKb", "JPM", "V", "JNJ", "WMT", "MA", "UNH", 
+"DIS", "PG", "NVDA.O", "BAC", "HD", "PYPL.O", "INTC.O", "CMCSA.O", 
+"NFLX.O", "VZ", "XOM", "KO", "ADBE.O", "NKE", "T", "ABT", "CSCO.O", 
+"CRM", "PFE", "CVX", "ORCL.K", "MRK", "PEP.O", "AVGO.O", "ABBV.K", 
+"TMO", "ACN", "LLY", "MCD", "TXN.O", "WFC", "DHR", "MDT", "TMUS.O", 
 "COST.O", "QCOM.O", "MS", "C", "HON", "NEE", "AMGN.O", "BA", 
 "BMY", "LIN", "UNP", "CHTR.O", "UPS", "PM", "LOW", "SBUX.O", 
 "SCHW.K", "CAT", "IBM", "RTX", "GS", "DE", "GE", "BLK", "AXP", 
@@ -61,4 +61,4 @@ c("RIC", "AAPL.O", "MSFT.O", "AMZN.O", "GOOG.O", "GOOGL.O", "FB.O",
 "REG.O", "HSIC.O", "NI", "NLSN.K", "PNW", "ZION.O", "NRG", "VNO", 
 "AIZ", "RHI", "RL", "JNPR.K", "ALK", "MRO", "KIM", "HII", "FRT", 
 "PBCT.O", "FLIR.O", "COG", "SEE", "APA.O", "PVH", "DXC", "HBI", 
-"LEG", "HFC", "PRGO.K", "UNM", "NOV", ".SPX")
+"LEG", "HFC", "PRGO.K", "UNM", "NOV")

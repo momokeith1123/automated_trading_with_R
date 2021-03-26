@@ -28,6 +28,7 @@ if(length(toload) != 0){
     df <- eikon_get(toload[i])
     if (!is.null(df)) {
       write_csv(df,  paste0(toload[i], ".csv"))
+      print(toload[i])
     } else {
       invalid <- c(invalid, toload[i])
     }
