@@ -10,7 +10,7 @@ eikon_api = "9a548e9c62cb499b8ebd0d9a777b4d857ef449a0"
 
 #add my key
 eikonapir::set_app_id(eikon_api)
-result <- get_symbology(list("MSFT.O", "GOOG.O", "IBM.N"),"RIC",list("ISIN"),raw_ouput = FALSE,debug=FALSE)
+# result <- get_symbology(list("MSFT.O", "GOOG.O", "IBM.N"),"RIC",list("ISIN"),raw_ouput = FALSE,debug=FALSE)
 # df = get_timeseries("MSFT.O",list("*"),start_date = "2016-01-01T15:04:05",end_date = "2021-03-22T15:04:05",interval = "daily", raw_output = TRUE)
 # dat = get_timeseries("MSFT.O",list("*"),start_date = "2016-01-04T00:00:00Z",end_date ="2021-03-22T00:00:00Z","daily")
 
@@ -34,19 +34,29 @@ function(sym, sdate = "2000-01-01T00:00:00", edate = current ) {
                             end_date =  edate,
                             debug = FALSE)) 
   
-    df <- tibble (  'Date'= ymd(substr(as.character(dt$TIMESTAMP), start = 1, stop = 10)),
-                    'Open' = as.double(dt$OPEN),
-                    'High' = as.double(dt$HIGH),
-                    'Low'  = as.double(dt$LOW),
-                    'Close' = as.double(dt$CLOSE),
-                    'Count' = as.double(dt$COUNT),
-                    'Volume' = as.double(dt$VOLUME),
+    df <- tibble (  
+                    'Date'= substr(as.character(dt$TIMESTAMP), start = 1, stop = 10),
+                    # 'Date'= ymd(substr(as.character(dt$TIMESTAMP), start = 1, stop = 10)),
+                    'Open' = dt$OPEN,
+                    'High' = dt$HIGH,
+                    'Low'  = dt$LOW,
+                    'Close' = dt$CLOSE,
+                    'Count' = dt$COUNT,
+                    'Volume' = dt$VOLUME,
                     'Ric'  = sym
                    )
     # names(df )[2:6] <- paste0( paste0(names(df )[2:6], '.', sym))
-    
+    # tsdata <- xts (x = df[,-1], order.by = as.Date(as.character(df[,1]), format = "%Y-%m-%d") )
     return(df)
 
 }
 
 
+# #### transform data frame into timeseries ####
+# transforn_into_xts <- function (df) {
+#   dates <- as.Date(as.character(df[,1]), format = "%Y-%m-%d")
+#   data  <- df[,-1]
+#   #
+#   tsdata <- xts( x = data, order.by = dates)
+# }
+####

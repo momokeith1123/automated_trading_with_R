@@ -10,7 +10,7 @@ for(i in S){
   # maxdate <- max(index(DATA[[i]])[nrow(DATA[[i]])])
  
   print(i)
-  maxdate <- ymd(max(DATA[[i]]$DATE [nrow(DATA[[i]])]))
+  maxdate <- ymd(max(DATA[[i]]$Date [nrow(DATA[[i]])]))
   if(as.numeric(difftime(currentTime, maxdate, units = "hours")) >= 40.25){
     
     # Push the maxdate forward one day
