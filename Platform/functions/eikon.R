@@ -11,7 +11,7 @@ eikon_api = "9a548e9c62cb499b8ebd0d9a777b4d857ef449a0"
 #add my key
 eikonapir::set_app_id(eikon_api)
 # result <- get_symbology(list("MSFT.O", "GOOG.O", "IBM.N"),"RIC",list("ISIN"),raw_ouput = FALSE,debug=FALSE)
-# df = get_timeseries("MSFT.O",list("*"),start_date = "2016-01-01T15:04:05",end_date = "2021-03-22T15:04:05",interval = "daily", raw_output = TRUE)
+# df = get_timeseries("MSFT.O",list("OPEN"),start_date = "2021-01-01T15:04:05",end_date = "2021-03-22T15:04:05",interval = "daily",corax = "adjusted",raw_output = TRUE)
 # dat = get_timeseries("MSFT.O",list("*"),start_date = "2016-01-04T00:00:00Z",end_date ="2021-03-22T00:00:00Z","daily")
 
 
@@ -50,13 +50,3 @@ function(sym, sdate = "2000-01-01T00:00:00", edate = current ) {
     return(df)
 
 }
-
-
-# #### transform data frame into timeseries ####
-# transforn_into_xts <- function (df) {
-#   dates <- as.Date(as.character(df[,1]), format = "%Y-%m-%d")
-#   data  <- df[,-1]
-#   #
-#   tsdata <- xts( x = data, order.by = dates)
-# }
-####

@@ -1,4 +1,5 @@
 library(zoo)
+library(lubridate)
 
 newDataObject <- function (df , field = "Close")
 {
@@ -30,6 +31,10 @@ for (i in c("Open", "High", "Low", "Close","Volume")) {
 
 # Double-check that our data is unique and in ascending-date order
 DATA <- lapply(STOCK, function(v) unique(v[order(v$Date),]))
+
+# Fill NAs with last oberservation
+DATA <- lapply (DATA,  na.locf, fromLast = TRUE)
+
 
 
 # Declare them as zoo objects for use with time-series functions
